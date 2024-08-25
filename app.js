@@ -105,8 +105,8 @@ app.post('/addSchool', validation, async (req, res) => {
       const q = "INSERT INTO school (id, name, address, latitude, longitude) VALUES (?, ?, ?, ?, ?)";
       try {
       await query(q, [id, name, address, latitude, longitude]);
-      res.render('listSchools', { results });
-      // res.status(201).json({ message: "School added successfully" });
+      // res.render('listSchools', { results });
+      res.status(201).json({ message: "School added successfully" });
       } catch (err) {
       console.error('Error adding school:', err);
       res.status(500).send("Error in DB");
