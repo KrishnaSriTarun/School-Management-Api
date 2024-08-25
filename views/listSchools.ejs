@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>List Schools</title>
+      <link rel="stylesheet" href="/listSchools.css">
+      </head>
+      <body>
+      <h1 class="head">List Schools</h1>
+      <form  action="/addSchool" method="get">
+            <button>Add School</button>
+      </form>
+
+      <form action="/listSchools" method="post">
+            <label for="latitude">Enter Latitude:-</label>
+            <input type="number" id="latitude" step="0.01" min="-90" max="90" name="latitude" required><br><br>
+            <label for="longitude">Enter Longitude:-</label>
+            <input type="number" id="longitude" step="0.01" min="-180" max="180" name="longitude" required><br><br>
+            <button>Search</button>
+      </form>
+      <form action="/listSchools" method="post">
+            <button>Use Current Location</button>
+      </form>
+
+      <table border="1">
+            <tr>
+                  <th>School Name</th>
+                  <th>Address</th>
+                  
+            </tr>
+            <% for (let result of results) { %>
+            <tr>
+                  <td><%- result.name %></td>
+                  <td><%- result.address %></td>
+            </tr>
+            <% } %>
+      </table>
+</body>
+</html>
